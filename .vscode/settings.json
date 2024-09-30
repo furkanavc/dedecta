@@ -1,0 +1,121 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "css.customData": [".vscode/tailwind.json"],
+  "css.validate": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.fixAll.sortJSON": "explicit"
+  },
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.insertSpaces": true,
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "other": "on",
+    "strings": true
+  },
+  "errorLens.enabledDiagnosticLevels": ["error", "warning"],
+  "errorLens.fontWeight": "900",
+  "errorLens.gutterIconsEnabled": true,
+  "errorLens.gutterIconsFollowCursorOverride": false,
+  "errorLens.margin": "2ch",
+  "errorLens.messageTemplate": "$count $severity: $message -($code) -$source",
+  "errorLens.onSave": true,
+  "errorLens.statusBarColorsEnabled": true,
+  "errorLens.statusBarCommand": "copyMessage",
+  "errorLens.statusBarIconsEnabled": true,
+  "errorLens.statusBarMessageEnabled": true,
+  "errorLens.statusBarMessageTemplate": "$message $source $severity $code",
+  "errorLens.statusBarMessageType": "closestProblem",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "json.format.enable": false,
+  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "ui"],
+  "tailwindCSS.experimental.classRegex": [
+    ["[\"'`]([^\"'`]*).*?[\"'`]", "ui:\\s*{([^)]*)\\s*}"],
+    ["/\\*ui\\*/\\s*{([^;]*)}", ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.general.statusBar": "current file",
+  "todo-tree.general.tags": [
+    "DONE",
+    "FIXME",
+    "MARK",
+    "NOTE",
+    "PENDING",
+    "TODO"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "DONE": {
+      "background": "#00ff0080",
+      "icon": "issue-closed",
+      "iconColour": "#00ff0080",
+      "type": "whole-line"
+    },
+    "FIXME": {
+      "background": "#CF0000",
+      "icon": "bug",
+      "iconColour": "#CF0000",
+      "type": "whole-line"
+    },
+    "MARK": {
+      "background": "#525CEB",
+      "icon": "tag",
+      "iconColour": "#525CEB",
+      "type": "whole-line"
+    },
+    "NOTE": {
+      "background": "#ccc",
+      "foreground": "#000",
+      "icon": "file",
+      "iconColour": "#ccc",
+      "type": "whole-line"
+    },
+    "PENDING": {
+      "background": "#ec4e0b",
+      "icon": "clock",
+      "iconColour": "#ec4e0b",
+      "type": "whole-line"
+    },
+    "TODO": {
+      "background": "#FFD703",
+      "foreground": "#000",
+      "icon": "tasklist",
+      "iconColour": "#FFD703",
+      "type": "whole-line"
+    }
+  },
+  "todo-tree.highlights.defaultHighlight": {
+    "fontWeight": "normal",
+    "foreground": "#fefefe",
+    "opacity": 90,
+    "type": "tag"
+  },
+  "todo-tree.regex.enableMultiLine": false,
+  "todo-tree.tree.sort": true,
+  "versionlens.caching.duration": 0,
+  "versionlens.composer.caching.duration": 0,
+  "versionlens.npm.caching.duration": 0
+}
