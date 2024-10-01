@@ -59,7 +59,7 @@ const data = [
 ];
 </script>
 <template>
-  <div class="grid grid-cols-1 gap-5 px-5">
+  <div class="grid grid-cols-1 gap-5 p-5">
     <PostItem v-for="(post, i) in data" :key="i" :post="post" />
   </div>
 </template>
