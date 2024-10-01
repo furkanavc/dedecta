@@ -41,18 +41,20 @@ const sortOptions = [
 ];
 </script>
 <template>
-  <select
-    v-model="sortOrder"
-    @change="sort"
-    class="w-full bg-white rounded-lg border border-slate-700 h-12 text-lg"
-  >
-    <option disabled selected>Sort By</option>
-    <option
-      v-for="option in sortOptions"
-      :key="option.name"
-      :value="option.value"
+  <div class="bg-white p-5 rounded-lg text-lg">
+    <select
+      v-model="sortOrder"
+      @change="sort"
+      class="w-full rounded-lg border border-slate-700 h-12"
     >
-      {{ option.name }}
-    </option>
-  </select>
+      <option disabled selected>Sort By</option>
+      <option
+        v-for="option in sortOptions"
+        :key="option.name"
+        :value="option.value"
+      >
+        {{ option.name }}
+      </option>
+    </select>
+  </div>
 </template>
