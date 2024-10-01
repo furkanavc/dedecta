@@ -8,3 +8,17 @@ export const toHumanDate = (date: number | string) => {
 
   return `${day}/${month}/${year}`;
 };
+
+export const debounceFunction = <F extends (...args: any[]) => any>(
+  functionToDebounce: F,
+  delay: number
+): ((...args: Parameters<F>) => void) => {
+  let timeoutId: number | undefined;
+
+  return (...args: Parameters<F>) => {
+    clearTimeout(timeoutId);
+    timeoutId = window.setTimeout(() => {
+      functionToDebounce(...args);
+    }, delay);
+  };
+};

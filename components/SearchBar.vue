@@ -1,48 +1,23 @@
 <script setup lang="ts">
 import { dataStore } from "~/store/data";
+import { debounceFunction } from "~/utils/helpers";
+const searchQuery = ref("");
 
-const sortOrder = ref("Sort By");
-const sort = () => {
-  dataStore().sortData(sortOrder.value);
+const search = async () => {
+  await dataStore().searchData(searchQuery.value);
+  console.log("object :>> ");
 };
-const sortOptions = [
-  {
-    name: "Likes (Ascending)",
-    value: "likesAsc",
-  },
-  {
-    name: "Likes (Descending)",
-    value: "likesDesc",
-  },
-  {
-    name: "Comments (Ascending)",
-    value: "commentsAsc",
-  },
-  {
-    name: "Comments (Descending)",
-    value: "commentsDesc",
-  },
-  {
-    name: "Retweets (Ascending)",
-    value: "retweetsAsc",
-  },
-  {
-    name: "Retweets (Descending)",
-    value: "retweetsDesc",
-  },
-  {
-    name: "Date (Ascending)",
-    value: "dateAsc",
-  },
-  {
-    name: "Date (Descending)",
-    value: "dateDesc",
-  },
-];
+const debouncedSearch = debounceFunction(search, 1000);
 </script>
 <template>
   <div class="bg-white p-5 rounded-lg text-lg">
-    <h2 class="mb-2">Filter & Sort</h2>
-    SEARCH
+    <h2 class="mb-2">Search</h2>
+    {{ searchQuery }}
+    <input
+      type="text"
+      v-model="searchQuery"
+      @input="debouncedSearch"
+      class="w-full h-12 border border-slate-700 rounded-lg px-3"
+    />
   </div>
 </template>
