@@ -21,6 +21,8 @@ const filter = () => {
 const clearDate = () => {
   startDate.value = "";
   endDate.value = "";
+  sortOrder.value = "Sort By";
+
   dataStore().clearDate();
 };
 const sortOptions = [
