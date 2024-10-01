@@ -11,9 +11,9 @@ definePageMeta({
 <template>
   <div class="flex">
     <PostList />
-    <div class="flex space-x-3 border-l-2 border-l-slate-700 p-5">
+    <div class="flex flex-col space-x-3 border-l-2 border-l-slate-700 p-5">
       <FilterBar />
-      <SearchBar />
+      <SortBar />
     </div>
   </div>
 </template>
