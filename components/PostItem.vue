@@ -8,7 +8,7 @@ interface Props {
 const { post } = defineProps<Props>();
 </script>
 <template>
-  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+  <div class="bg-white p-8 rounded-lg shadow-md w-full">
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center space-x-2">
         <img

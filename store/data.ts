@@ -239,11 +239,35 @@ export const dataStore = defineStore("dataStore", {
         this.showedData = this.dummy;
       } else {
         const filteredData = this.dummy.filter(
-          (post) =>
+          (post: CombinedData) =>
             post.text && post.text.toLowerCase().includes(query.toLowerCase())
         );
         return (this.showedData = filteredData);
       }
+    },
+    async filterByDate(startTimestamp: number, endTimestamp: number) {
+      if (!this.dummy || !Array.isArray(this.dummy)) {
+        console.error("Data is not available.");
+        return [];
+      }
+
+      const filteredData = this.dummy.filter((post: CombinedData) => {
+        let postTimestamp: number;
+        if (typeof post.date === "number") {
+          postTimestamp = post.date * 1000;
+        } else {
+          postTimestamp = new Date(post.date).getTime();
+        }
+
+        return postTimestamp >= startTimestamp && postTimestamp <= endTimestamp;
+      });
+
+      console.log(filteredData);
+
+      return (this.showedData = filteredData);
+    },
+    async clearDate() {
+      return (this.showedData = this.dummy);
     },
   },
 });

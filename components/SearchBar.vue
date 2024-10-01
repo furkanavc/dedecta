@@ -5,14 +5,12 @@ const searchQuery = ref("");
 
 const search = async () => {
   await dataStore().searchData(searchQuery.value);
-  console.log("object :>> ");
 };
 const debouncedSearch = debounceFunction(search, 1000);
 </script>
 <template>
   <div class="bg-white p-5 rounded-lg text-lg">
     <h2 class="mb-2">Search</h2>
-    {{ searchQuery }}
     <input
       type="text"
       v-model="searchQuery"
