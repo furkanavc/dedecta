@@ -141,8 +141,6 @@ export const dataStore = defineStore("dataStore", {
       let sortedData = [...this.dummy];
 
       switch (sortBy) {
-        case "clear":
-          return sortedData;
         case "dateAsc":
           sortedData.sort(
             (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()

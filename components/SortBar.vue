@@ -1,24 +1,58 @@
 <script setup lang="ts">
-const sortOrder = ref("all");
 import { dataStore } from "~/store/data";
 
-const { dummy } = storeToRefs(dataStore());
-
+const sortOrder = ref("Sort By");
 const sort = () => {
   dataStore().sortData(sortOrder.value);
-  console.log("object :>> ", dummy.value);
 };
+const sortOptions = [
+  {
+    name: "Likes (Ascending)",
+    value: "likesAsc",
+  },
+  {
+    name: "Likes (Descending)",
+    value: "likesDesc",
+  },
+  {
+    name: "Comments (Ascending)",
+    value: "commentsAsc",
+  },
+  {
+    name: "Comments (Descending)",
+    value: "commentsDesc",
+  },
+  {
+    name: "Retweets (Ascending)",
+    value: "retweetsAsc",
+  },
+  {
+    name: "Retweets (Descending)",
+    value: "retweetsDesc",
+  },
+  {
+    name: "Date (Ascending)",
+    value: "dateAsc",
+  },
+  {
+    name: "Date (Descending)",
+    value: "dateDesc",
+  },
+];
 </script>
 <template>
-  <select v-model="sortOrder" @change="sort">
-    <option value="clear">Clear</option>
-    <option value="retweetsAsc">Retweets (Ascending)</option>
-    <option value="retweetsDesc">Retweets (Descending)</option>
-    <option value="dateAsc">Date (Ascending)</option>
-    <option value="dateDesc">Date (Descending)</option>
-    <option value="likesAsc">Likes (Ascending)</option>
-    <option value="likesDesc">Likes (Descending)</option>
-    <option value="commentsDesc">Comments (Ascending)</option>
-    <option value="commentsDesc">Comments (Descending)</option>
+  <select
+    v-model="sortOrder"
+    @change="sort"
+    class="w-full bg-white rounded-lg border border-slate-700 h-12 text-lg"
+  >
+    <option disabled selected>Sort By</option>
+    <option
+      v-for="option in sortOptions"
+      :key="option.name"
+      :value="option.value"
+    >
+      {{ option.name }}
+    </option>
   </select>
 </template>
