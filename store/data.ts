@@ -1,16 +1,16 @@
 import { defineStore } from "pinia";
+import type { CombinedData } from "~/types/index";
 
 export const dataStore = defineStore("dataStore", {
   state: () => {
     return {
       insta: {
         posts: [],
-        user: [],
       },
       x: {
         posts: [],
-        user: [],
       },
+      combinedData: [] as CombinedData[],
     };
   },
   actions: {
@@ -30,7 +30,6 @@ export const dataStore = defineStore("dataStore", {
         const response = await fetch(url, options);
         const result = await response.json();
         this.insta.posts = result.data.items;
-        this.insta.user = result.data.user;
       } catch (error) {
         console.error(error);
       }
@@ -51,10 +50,38 @@ export const dataStore = defineStore("dataStore", {
         const response = await fetch(url, options);
         const result = await response.json();
         this.x.posts = result.timeline;
-        this.x.user = result.user;
       } catch (error) {
         console.error(error);
       }
+    },
+    async combineData() {
+      await dataStore().fetchInstaData();
+      await dataStore().fetchXData();
+      this.insta.posts.forEach((post) => {
+        this.combinedData.push({
+          user: post.caption.user.full_name,
+          text: post.caption.text,
+          like: post.like_count,
+          comment: post.comment_count,
+          date: post.caption.created_at,
+          avatar: post.caption.user.profile_pic_url,
+          image: post.image_version.items[1].url,
+          platform: "Instagram",
+        });
+      });
+      this.x.posts.forEach((post) => {
+        this.combinedData.push({
+          user: post.author?.name,
+          text: post.text,
+          like: post.favorites,
+          comment: post.replies,
+          date: post.created_at,
+          retweets: post.retweets,
+          avatar: post.author?.avatar,
+          image: post.media.photo[0].media_url_https ?? "",
+          platform: "X",
+        });
+      });
     },
   },
 });
