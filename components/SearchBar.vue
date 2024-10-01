@@ -42,19 +42,7 @@ const sortOptions = [
 </script>
 <template>
   <div class="bg-white p-5 rounded-lg text-lg">
-    <select
-      v-model="sortOrder"
-      @change="sort"
-      class="w-full rounded-lg border border-slate-700 h-12"
-    >
-      <option disabled selected>Sort By</option>
-      <option
-        v-for="option in sortOptions"
-        :key="option.name"
-        :value="option.value"
-      >
-        {{ option.name }}
-      </option>
-    </select>
+    <h2 class="mb-2">Filter & Sort</h2>
+    SEARCH
   </div>
 </template>
