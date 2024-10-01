@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { dataStore } from "~/store/data";
 import { storeToRefs } from "#imports";
-const { insta } = storeToRefs(dataStore());
+const { insta, x } = storeToRefs(dataStore());
 onMounted(() => {
-  // dataStore().fetchData();
+  // dataStore().fetchInstaData();
+  // dataStore().fetchXData();
 });
 definePageMeta({
   layout: "dashboard",
@@ -11,7 +12,7 @@ definePageMeta({
 </script>
 <template>
   <div>
-    <pre>{{ insta.posts }}</pre>
-    <pre>{{ insta.user }}</pre>
+    <pre>{{ x.posts }}</pre>
+    <pre>{{ x.user }}</pre>
   </div>
 </template>
