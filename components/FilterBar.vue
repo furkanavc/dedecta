@@ -61,7 +61,7 @@ const sortOptions = [
 ];
 </script>
 <template>
-  <div class="bg-white p-5 rounded-lg text-lg space-y-2">
+  <div class="bg-white p-5 rounded-lg text-lg space-y-2 w-full">
     <h2>Filter & Sort</h2>
 
     <select

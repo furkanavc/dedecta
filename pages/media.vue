@@ -9,11 +9,13 @@ definePageMeta({
 });
 </script>
 <template>
-  <div class="flex w-full">
-    <div class="w-2/3 p-5">
+  <div class="flex flex-col-reverse lg:flex-row w-full">
+    <div class="w-full lg:w-2/3 p-5">
       <PostList />
     </div>
-    <div class="flex flex-col border-l-2 border-l-slate-700 p-5 gap-5 w-1/3">
+    <div
+      class="flex flex-col border-b-2 lg:border-b-0 lg:border-l-2 border-slate-700 p-5 gap-5 w-full lg:w-1/3"
+    >
       <SearchBar />
       <FilterBar />
     </div>

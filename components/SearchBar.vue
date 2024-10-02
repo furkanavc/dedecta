@@ -9,7 +9,7 @@ const search = async () => {
 const debouncedSearch = debounceFunction(search, 1000);
 </script>
 <template>
-  <div class="bg-white p-5 rounded-lg text-lg">
+  <div class="bg-white p-5 rounded-lg text-lg w-full">
     <h2 class="mb-2">Search</h2>
     <input
       type="text"
