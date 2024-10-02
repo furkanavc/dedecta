@@ -1,10 +1,20 @@
 <script setup lang="ts">
 import { dataStore } from "~/store/data";
 import { debounceFunction } from "~/utils/helpers";
+
+interface Props {
+  xSearch?: boolean;
+}
+const { xSearch } = defineProps<Props>();
+
 const searchQuery = ref("");
 
 const search = async () => {
-  await dataStore().searchData(searchQuery.value);
+  if (xSearch) {
+    await dataStore().twitterSearch(searchQuery.value);
+  } else {
+    await dataStore().searchData(searchQuery.value);
+  }
 };
 const debouncedSearch = debounceFunction(search, 1000);
 </script>

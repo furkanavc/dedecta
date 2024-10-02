@@ -70,6 +70,7 @@ export const dataStore = defineStore("dataStore", {
           platform: "X",
         },
       ],
+      searchedXData: [],
       showedData: [] as CombinedData[],
       chartData: {
         dates: [],
@@ -152,7 +153,7 @@ export const dataStore = defineStore("dataStore", {
       this.showedData = this.combinedData;
       this.fillChartData();
     },
-    async sortData(sortBy: string) {
+    sortData(sortBy: string) {
       let sortedData = [...this.showedData];
 
       switch (sortBy) {
@@ -190,7 +191,7 @@ export const dataStore = defineStore("dataStore", {
 
       return (this.showedData = sortedData);
     },
-    async searchData(query: string) {
+    searchData(query: string) {
       if (!this.combinedData || !Array.isArray(this.combinedData)) {
         console.error("Data is not available.");
         return [];
@@ -206,7 +207,7 @@ export const dataStore = defineStore("dataStore", {
         return (this.showedData = filteredData);
       }
     },
-    async filterByDate(startTimestamp: number, endTimestamp: number) {
+    filterByDate(startTimestamp: number, endTimestamp: number) {
       if (!this.combinedData || !Array.isArray(this.combinedData)) {
         console.error("Data is not available.");
         return [];
@@ -244,7 +245,27 @@ export const dataStore = defineStore("dataStore", {
         }
       });
     },
-    async clearDate() {
+    async twitterSearch(query: string) {
+      const encodedQuery = encodeURIComponent(query);
+      const url = `https://twitter-api45.p.rapidapi.com/search.php?query=${encodedQuery}&search_type=Top`;
+      const options = {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key":
+            "a4732e5793mshc442dddd3732853p15a39fjsncb230a7d32b5",
+          "x-rapidapi-host": "twitter-api45.p.rapidapi.com",
+        },
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        this.searchedXData = result.timeline;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    clearDate() {
       return (this.showedData = this.combinedData);
     },
   },
