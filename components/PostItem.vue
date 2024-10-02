@@ -12,10 +12,7 @@ const { post } = defineProps<Props>();
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center space-x-2">
         <img
-          :src="
-            post?.avatar ??
-            'https://pbs.twimg.com/profile_images/994592419705274369/RLplF55e_normal.jpg'
-          "
+          src="https://pbs.twimg.com/profile_images/994592419705274369/RLplF55e_normal.jpg"
           crossorigin="anonymous"
           alt="User Avatar"
           class="w-8 h-8 rounded-full"
