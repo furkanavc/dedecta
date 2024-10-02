@@ -20,56 +20,19 @@ ChartJS.register(
   LinearScale,
   CategoryScale
 );
-const { combinedData } = storeToRefs(dataStore());
-interface ChartData {
-  dates: string[];
-  x: {
-    likes: string[];
-  };
-  insta: {
-    likes: string[];
-  };
-}
-const chartData = ref<ChartData>({
-  dates: [],
-  x: {
-    likes: [],
-  },
-  insta: {
-    likes: [],
-  },
-});
-const fillChartData = () => {
-  chartData.value.dates = [];
-  chartData.value.x.likes = [];
-  chartData.value.insta.likes = [];
-
-  combinedData.value.forEach((post) => {
-    const date = new Date(
-      typeof post.date === "number" ? post.date * 1000 : post.date
-    ).toLocaleDateString();
-
-    chartData.value.dates.push(date);
-
-    if (post.platform === "X") {
-      chartData.value.x.likes.push(post.like.toString());
-    } else if (post.platform === "Instagram") {
-      chartData.value.insta.likes.push(post.like.toString());
-    }
-  });
-};
+const { chartData } = storeToRefs(dataStore());
 
 const chartDataObj: any = computed(() => ({
-  labels: chartData.value.dates,
+  labels: chartData.value?.dates,
   datasets: [
     {
       label: "Instagram",
-      data: chartData.value.insta.likes,
+      data: chartData?.value.insta.likes,
       backgroundColor: "#C13584",
     },
     {
       label: "X",
-      data: chartData.value.x.likes,
+      data: chartData?.value.x.likes,
       backgroundColor: "#1DA1F2",
     },
   ],
@@ -83,9 +46,6 @@ const styles = computed(() => {
     height: "500px",
     width: "100%",
   };
-});
-onMounted(() => {
-  fillChartData();
 });
 </script>
 <template>

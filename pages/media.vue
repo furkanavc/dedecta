@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { dataStore } from "~/store/data";
-
-onMounted(() => {
-  // dataStore().combineData();
-});
 definePageMeta({
   layout: "dashboard",
 });

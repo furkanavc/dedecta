@@ -1,5 +1,10 @@
 import { defineStore } from "pinia";
-import type { CombinedData, XPost, InstagramPost } from "~/types/index";
+import type {
+  CombinedData,
+  XPost,
+  InstagramPost,
+  ChartData,
+} from "~/types/index";
 
 export const dataStore = defineStore("dataStore", {
   state: () => {
@@ -66,6 +71,15 @@ export const dataStore = defineStore("dataStore", {
         },
       ],
       showedData: [] as CombinedData[],
+      chartData: {
+        dates: [],
+        x: {
+          likes: [],
+        },
+        insta: {
+          likes: [],
+        },
+      } as ChartData,
     };
   },
   actions: {
@@ -136,6 +150,7 @@ export const dataStore = defineStore("dataStore", {
         });
       });
       this.showedData = this.combinedData;
+      this.fillChartData();
     },
     async sortData(sortBy: string) {
       let sortedData = [...this.showedData];
@@ -209,6 +224,25 @@ export const dataStore = defineStore("dataStore", {
       });
 
       return (this.showedData = filteredData);
+    },
+    fillChartData() {
+      this.chartData.dates = [];
+      this.chartData.x.likes = [];
+      this.chartData.insta.likes = [];
+
+      this.combinedData.forEach((post: CombinedData) => {
+        const date = new Date(
+          typeof post.date === "number" ? post.date * 1000 : post.date
+        ).toLocaleDateString();
+
+        this.chartData.dates.push(date);
+
+        if (post.platform === "X") {
+          this.chartData.x.likes.push(post.like.toString());
+        } else if (post.platform === "Instagram") {
+          this.chartData.insta.likes.push(post.like.toString());
+        }
+      });
     },
     async clearDate() {
       return (this.showedData = this.combinedData);

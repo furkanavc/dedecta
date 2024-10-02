@@ -33,4 +33,14 @@ type XPost = {
   created_at?: string;
   retweets?: number;
 };
-export type { CombinedData, InstagramPost, XPost };
+
+type ChartData = {
+  dates: string[];
+  x: {
+    likes: string[];
+  };
+  insta: {
+    likes: string[];
+  };
+};
+export type { CombinedData, InstagramPost, XPost, ChartData };
