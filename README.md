@@ -1,6 +1,14 @@
-# Nuxt 3 Minimal Starter
+## Note
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Selamlar
+
+Projede Pinia store kullanıyorum ve gerekli fonksiyonlar için veri yönetimi yapıyorum. Styling için Tailwind CSS, tablo oluşturmak için ise Chart.js kullanıyorum.
+
+RapidAPI ile canlı güncelleme sağlamak pek mümkün değil. En basit yöntem olarak interval ekleyebilirdim, ancak API'nin katı limitleri ve verilerin sürekli güncellenmemesi sorun oluşturuyor. Çoğu API'de sort ve filter metodları bulunmuyor; bulunanlarda ise aylık 10-20 istek gibi katı limitler mevcut.
+
+Bu nedenle, elinde olan Instagram ve X verilerini çekip, ön planda filter ve sort işlemlerini gerçekleştirdim. Bunun ideal bir yöntem olmadığını biliyorum, bu yüzden bir arama sayfası açtım ve mevcut API’nin arama sistemini kullanarak basit bir arama özelliği ekledim.
+
+Eğer isterseniz, vereceğiniz bir API ile revizyon yapabilirim.
 
 ## Setup
 
@@ -37,39 +45,3 @@ yarn dev
 # bun
 bun run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

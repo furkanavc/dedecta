@@ -6,6 +6,9 @@ const { searchedXData } = storeToRefs(dataStore());
 </script>
 <template>
   <div class="grid grid-cols-1 gap-5 w-full">
+    <span class="text-lg text-white"
+      ># @ kullanarak veya kelime araması yapabilirsiniz.
+    </span>
     <div
       v-if="searchedXData.length === 0"
       class="w-full h-96 flex items-center justify-center"
