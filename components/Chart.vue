@@ -20,7 +20,7 @@ ChartJS.register(
   LinearScale,
   CategoryScale
 );
-const { dummy } = storeToRefs(dataStore());
+const { combinedData } = storeToRefs(dataStore());
 interface ChartData {
   dates: string[];
   x: {
@@ -44,7 +44,7 @@ const fillChartData = () => {
   chartData.value.x.likes = [];
   chartData.value.insta.likes = [];
 
-  dummy.value.forEach((post) => {
+  combinedData.value.forEach((post) => {
     const date = new Date(
       typeof post.date === "number" ? post.date * 1000 : post.date
     ).toLocaleDateString();
