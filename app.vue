@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { dataStore } from "~/store/data";
 onMounted(() => {
-  // dataStore().combineData();
+  dataStore().combineData();
 });
 </script>
 <template>
