@@ -4,7 +4,7 @@ import { storeToRefs } from "#imports";
 const { insta, x, combinedData, dummy, showedData } = storeToRefs(dataStore());
 </script>
 <template>
-  <div class="grid grid-cols-1 gap-5 p-5 w-full">
+  <div class="grid grid-cols-1 gap-5 w-full">
     <div
       v-if="showedData.length === 0"
       class="w-full h-96 flex items-center justify-center"

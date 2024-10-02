@@ -10,7 +10,9 @@ definePageMeta({
 </script>
 <template>
   <div class="flex w-full">
-    <PostList class="w-2/3" />
+    <div class="w-2/3 p-5">
+      <PostList />
+    </div>
     <div class="flex flex-col border-l-2 border-l-slate-700 p-5 gap-5 w-1/3">
       <SearchBar />
       <FilterBar />

@@ -173,7 +173,6 @@ export const dataStore = defineStore("dataStore", {
           comment: post.comment_count,
           date: post.caption.created_at,
           avatar: post.caption.user.profile_pic_url,
-          image: post.image_version.items[1].url,
           platform: "Instagram",
         });
       });
@@ -186,7 +185,6 @@ export const dataStore = defineStore("dataStore", {
           date: post.created_at,
           retweets: post.retweets,
           avatar: post.author?.avatar,
-          image: post.media.photo[0].media_url_https ?? "",
           platform: "X",
         });
       });
