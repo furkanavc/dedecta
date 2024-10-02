@@ -21,14 +21,22 @@ ChartJS.register(
   CategoryScale
 );
 const { dummy } = storeToRefs(dataStore());
-
-const chartData = ref({
-  dates: [] as string[],
+interface ChartData {
+  dates: string[];
   x: {
-    likes: [] as string[],
+    likes: string[];
+  };
+  insta: {
+    likes: string[];
+  };
+}
+const chartData = ref<ChartData>({
+  dates: [],
+  x: {
+    likes: [],
   },
   insta: {
-    likes: [] as string[],
+    likes: [],
   },
 });
 const fillChartData = () => {
@@ -51,7 +59,7 @@ const fillChartData = () => {
   });
 };
 
-const chartDataObj = computed(() => ({
+const chartDataObj: any = computed(() => ({
   labels: chartData.value.dates,
   datasets: [
     {
